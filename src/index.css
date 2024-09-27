@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+/* index.css */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* This ensures the body and html fill the viewport */
+    width: 100vw;  /* Ensures the body takes full width */
+    box-sizing: border-box; /* To prevent unexpected box sizes */
+  }
+  
+  * {
+    box-sizing: inherit; /* Ensure all elements respect the box-sizing property */
+  }
+  
