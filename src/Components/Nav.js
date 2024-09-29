@@ -3,8 +3,8 @@ import Logo from "../assets/logo.png"
 import Userlogo from "../assets/user.png"
 function Nav(){
     return(
-        <div className="">
-            <div className="h-16 flex bg-black text-white items-center justify-between">
+        <div>
+            <div className="min-h-16 flex text-white items-center justify-between bg-black">
                 <img className="h-15 w-16 mx-5" src={Logo}></img>
                 <ul className="list-none flex space-x-8">
                     <li>Home</li>
