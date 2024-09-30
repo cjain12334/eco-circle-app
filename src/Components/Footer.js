@@ -7,7 +7,7 @@ import youtube from "../assets/youtube.png"
 import facebook from "../assets/facebook.png"
 function Footer(){
 return(
-    <div  className="h-96 w-full bg-cover bg-center  flex flex-col items-center justify-center gap-14 "style={{ backgroundImage: `url(${footer})`}}>
+    <div  className="h-96 w-full bg-cover bg-center  flex flex-col items-center justify-center gap-14"style={{ backgroundImage: `url(${footer})`}}>
         <div>
             <h1>Let's get Social</h1>
         </div>  
@@ -26,5 +26,4 @@ return(
     </div>
 )
 }
-
 export default Footer

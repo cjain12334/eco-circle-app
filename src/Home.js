@@ -13,7 +13,6 @@ import bottle from "./assets/bottle.png";
 import greenhouse from "./assets/greenhouse.png";
 import Footer from "./Components/Footer";
 import Login from "./Components/Login"; // Ensure the path is correct
-
 function Home() {
     const [showLogin, setShowLogin] = useState(false);
 
@@ -23,6 +22,7 @@ function Home() {
     };
 
     return (
+       
         <div>
             {!showLogin ? (
                 <div className="h-screen bg-gradient-to-b from-zinc-950 via-black-950 to-zinc-950 text-white">
@@ -37,7 +37,7 @@ function Home() {
                                 TOMORROW
                             </h1>
                             <div className="ml-0 md:ml-12">
-                                <Button1 text="Explore more" />
+                                <Button1 name="Explore more" />
                             </div>
                         </div>
 
@@ -101,12 +101,12 @@ function Home() {
                         </div>
                     </div>
 
-                    <div className="flex flex-col">
+                    <div className="flex flex-col bg-gradient-to-b from-zinc-950 via-neutral-900 to-zinc-950">
                         <div className="flex justify-center">
                             <h1 className="text-green-600 text-6xl mt-5 font-bold">Featured Products</h1>
                         </div>
                         <div
-                            className="h-96 w-full mt-6 flex items-center justify-center gap-14 bg-black"
+                            className="h-96 w-full  flex items-center justify-center gap-14 flex-col mt-6"
                             style={{ backgroundImage: `url(${naturecollection})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
                         >
                             <div className="grid grid-cols-3 gap-16">
@@ -126,13 +126,13 @@ function Home() {
                                     alt="Bottle"
                                 />
                             </div>
+                            <div className="">
+                            <Button1 name="Shop more" />
                         </div>
-                        <div className="flex justify-center mt-4">
-                            <Button1 text="Shop more" />
                         </div>
+                        <Footer></Footer>
                     </div>
 
-                    <Footer />
                 </div>
             ) : (
                 <Login onClose={() => setShowLogin(false)} />
