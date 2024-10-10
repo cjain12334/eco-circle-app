@@ -10,7 +10,7 @@ import bin from "./assets/Bin.png";
 import naturecollection from "./assets/naturecollection.png";
 import shoppingbag from "./assets/shoppingbag.png";
 import bottle from "./assets/bottle.png";
-import greenhouse from "./assets/greenhouse.png";
+import pendrive from "./assets/pendrive.png";
 import Footer from "./Components/Footer";
 import Login from "./Components/Login"; // Ensure the path is correct
 function Home() {
@@ -116,9 +116,9 @@ function Home() {
                                     alt="Shopping Bag"
                                 />
                                 <img
-                                    src={greenhouse}
+                                    src={pendrive}
                                     className="w-32 h-40 object-cover border rounded-lg backdrop-blur-sm bg-white/2 p-3"
-                                    alt="Greenhouse"
+                                    alt="pendrive"
                                 />
                                 <img
                                     src={bottle}
