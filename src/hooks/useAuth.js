@@ -31,7 +31,10 @@ const useAuth = () => {
         }
     };
 
-    return { signup, login, loading, error };
+    // Return an object that includes isAuthenticated
+    const isAuthenticated = !!localStorage.getItem('token'); // or however you check authentication
+
+    return { signup, login, loading, error, isAuthenticated }; // Include isAuthenticated in the return object
 };
 
 export default useAuth;
