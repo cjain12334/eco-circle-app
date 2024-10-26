@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import io from 'socket.io-client';
 import axios from 'axios';
 
-const socket = io('http://localhost:3000'); // Adjust the URL accordingly
+const socket = io('http://localhost:4000'); // Adjust the URL accordingly
 
 const Chat = () => {
   const [message, setMessage] = useState('');
@@ -12,7 +12,7 @@ const Chat = () => {
     // Fetch old messages from the server
     const fetchMessages = async () => {
       try {
-        const res = await axios.get('http://localhost:3000/api/chat/messages');
+        const res = await axios.get('http://localhost:4000/api/chat/messages');
         setMessages(res.data);
       } catch (error) {
         console.error('Failed to load messages', error);

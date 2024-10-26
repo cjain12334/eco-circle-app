@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
 // Message Schema
 const messageModel = new mongoose.Schema({
@@ -18,5 +18,6 @@ const messageModel = new mongoose.Schema({
     },
 }, { timestamps: true }); // Automatically adds createdAt and updatedAt fields
 
-export const Message = mongoose.model("Message", messageModel); // Exporting the Message model
+const Message = mongoose.model("Message", messageModel);
 
+module.exports = Message; // Exporting the Message model

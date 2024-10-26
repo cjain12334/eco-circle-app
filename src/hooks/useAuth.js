@@ -9,7 +9,7 @@ const useAuth = () => {
         setLoading(true);
         setError(null);
         try {
-            const response = await axios.post('http://localhost:3000/api/users/signup', userData);
+            const response = await axios.post('http://localhost:4000/api/users/signup', userData);
             return response.data;
         } catch (err) {
             setError(err.response.data.message || 'Signup failed');
@@ -22,7 +22,7 @@ const useAuth = () => {
         setLoading(true);
         setError(null);
         try {
-            const response = await axios.post('http://localhost:3000/api/users/login', credentials);
+            const response = await axios.post('http://localhost:4000/api/users/login', credentials);
             return response.data;
         } catch (err) {
             setError(err.response.data.message || 'Login failed');
