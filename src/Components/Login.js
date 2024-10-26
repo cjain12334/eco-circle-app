@@ -4,7 +4,7 @@ import login_bg from "../assets/login.jpg";
 import logo from "../assets/logo.png"; 
 import googleLogo from "../assets/googleLogo.png"; 
 
-function Login({ onClose }) {
+function Login() {
     const { login, signup, loading, error } = useAuth();
     const [isSignup, setIsSignup] = useState(false);
     const [formData, setFormData] = useState({ name: '', email: '', password: '' });
@@ -21,7 +21,6 @@ function Login({ onClose }) {
         } else {
             await login({ email: formData.email, password: formData.password });
         }
-        onClose(); // Close the login modal after action
     };
 
     return (
@@ -81,15 +80,6 @@ function Login({ onClose }) {
                     </button>
                 </form>
 
-                {/* Google Login */}
-                <div className="mt-6 flex justify-center items-center">
-                    <img
-                        src={googleLogo}
-                        alt="Login with Google"
-                        className="h-8 w-8 cursor-pointer"
-                    />
-                </div>
-
                 <p className="text-center text-sm text-gray-400 mt-4">
                     {isSignup ? "Already have an account?" : "Don't have an account?"}
                     <span
@@ -99,13 +89,6 @@ function Login({ onClose }) {
                         {isSignup ? "Login here" : "Sign up here"}
                     </span>
                 </p>
-
-                <button
-                    onClick={onClose}
-                    className="mt-4 text-sm text-gray-400 hover:text-white"
-                >
-                    Cancel
-                </button>
                 {loading && <p className="text-white text-center">Loading...</p>}
                 {error && <p className="text-red-500 text-center">{error}</p>}
             </div>
