@@ -3,26 +3,43 @@ import useAuth from "../hooks/useAuth"; // Adjust the import path as necessary
 import login_bg from "../assets/login.jpg"; 
 import logo from "../assets/logo.png"; 
 import googleLogo from "../assets/googleLogo.png"; 
-
+import { useNavigate } from 'react-router-dom';
 function Login() {
-    const { login, signup, loading, error } = useAuth();
+    const { login, signup, loading, error, setError } = useAuth();
     const [isSignup, setIsSignup] = useState(false);
     const [formData, setFormData] = useState({ name: '', email: '', password: '' });
+    const navigate = useNavigate();
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
     };
 
+
     const handleSubmit = async (e) => {
-        e.preventDefault();
+        e.preventDefault(); // Prevent the default form submission behavior
+    
+        let result; // Declare a variable to store the result of signup or login
+    
+        // Check if the user is signing up or logging in
         if (isSignup) {
-            await signup(formData);
+            result = await signup(formData); // Call the signup function
         } else {
-            await login({ email: formData.email, password: formData.password });
+            result = await login({ email: formData.email, password: formData.password }); // Call the login function
+        }
+    
+        // Check if the result has a token, indicating successful signup or login
+        if (result && result.token) {
+            localStorage.setItem('token', result.token); // Store the token in localStorage
+            navigate('/marketplace'); // Redirect to the Marketplace
+        } else {
+            const errorMessage = result?.error || 'An error occurred during signup or login.';
+            setError(errorMessage); // Set the error message
+            console.error('Error during signup/login:', errorMessage);
+            
         }
     };
-
+    
     return (
         <div className="min-h-screen flex items-center justify-center relative">
             <div

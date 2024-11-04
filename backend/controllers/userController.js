@@ -4,22 +4,30 @@ const jwt = require('jsonwebtoken');
 
 exports.signup = async (req, res) => {
   const { name, email, password } = req.body;
+  console.log('Signup request received:', { name, email });
 
   try {
     const existingUser = await User.findOne({ email });
-    if (existingUser) return res.status(400).json({ message: 'User already exists' });
+    if (existingUser) {
+      console.log('User already exists');
+      return res.status(400).json({ message: 'User already exists' });
+    }
 
-    const hashedPassword = await bcrypt.hash(password, 2);
-    const newUser = new User({ name, email, password: hashedPassword}); // Automatically verify
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const newUser = new User({ name, email, password: hashedPassword });
     await newUser.save();
 
-    const token = jwt.sign({ id: newUser._id }, process.env.JWT_SECRET); // Generate token
+    console.log('New user created:', newUser);
 
+    const token = jwt.sign({ id: newUser._id }, process.env.JWT_SECRET);
     res.status(201).json({ message: 'Signup successful', token });
   } catch (error) {
+    console.error('Error during signup:', error);
     res.status(500).json({ message: 'Error during signup', error });
   }
 };
+
+
 
 exports.login = async (req, res) => {
   const { email, password } = req.body;
