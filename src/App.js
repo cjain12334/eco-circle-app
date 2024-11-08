@@ -18,8 +18,6 @@ function App() {
                 {/* Public Routes */}
                 <Route path="/" element={<Home />} />
                 <Route path="/login" element={<Login />} />
-                {/* Add the route of market place */}
-                {/* Add more routes for other components/pages as needed */}
 
                 {/* Protected Routes - accessible only when logged in */}
                 <Route element={<ProtectedRoute />}>

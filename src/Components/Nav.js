@@ -4,6 +4,8 @@ import Logo from "../assets/logo.png";
 import Userlogo from "../assets/user.png";
 
 function Nav({ onLoginClick }) {
+    
+
     return (
         <div>
             <div className="min-h-16 flex text-white items-center justify-between bg-black">
@@ -18,6 +20,9 @@ function Nav({ onLoginClick }) {
                     <li>
                         <Link to="/community" className="cursor-pointer">Community</Link>
                     </li>
+                    <li>
+                        <Link to="/ewaste" className="cursor-pointer">E-waste</Link>
+                    </li>
                     <li
                         className="cursor-pointer hover:underline"
                         onClick={onLoginClick} // Trigger the login functionality
@@ -25,7 +30,7 @@ function Nav({ onLoginClick }) {
                         Login
                     </li>
                 </ul>
-                <img src={Userlogo} className="h-6 m-5" alt="User Logo" />
+                <Link to="/profile"><img src={Userlogo} className="h-6 m-5" alt="User Logo"  /></Link>
             </div>
         </div>
     );

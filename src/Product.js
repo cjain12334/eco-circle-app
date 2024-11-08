@@ -6,8 +6,13 @@ import johndoe from "./assets/johndoe.jpg";
 import ProductItemCard from './Components/ProductItemCard';
 import ReviewCard from './Components/ReviewCard';
 import FAQAccordion from './Components/FAQAccordian';
-
+import { useNavigate } from 'react-router-dom';
 function Product() {
+    const navigate = useNavigate()
+
+    function navigateToPayment(){
+        navigate("/payment")
+    }
     return (
         <>
             <Nav />
@@ -27,7 +32,7 @@ function Product() {
                             <p>$4.99</p>
                         </div>
                         <div className='mt-4 flex gap-x-4'>
-                            <button className='bg-green-700 bg-opacity-90 px-4 py-1 rounded-md'> Buy Now </button>
+                            <button className='bg-green-700 bg-opacity-90 px-4 py-1 rounded-md' onClick={navigateToPayment}> Buy Now </button>
                             <button className='border border-white px-4 py-1 rounded-md'> Add to Cart </button>
                         </div>
                     </div>

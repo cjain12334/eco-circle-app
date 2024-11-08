@@ -1,6 +1,6 @@
 import React from 'react'
 import Nav from './Components/Nav'
-import Footer from './Components/Footer'
+import Footer from "./Components/Footer";
 import ProfileCard from './Components/ProfilePageComponents/ProfileCard'
 import johndoe from './assets/johndoe.jpg'
 import { RiPieChart2Fill } from "react-icons/ri"
