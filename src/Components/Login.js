@@ -31,7 +31,7 @@ function Login() {
         // Check if the result has a token, indicating successful signup or login
         if (result && result.token) {
             localStorage.setItem('token', result.token); // Store the token in localStorage
-            navigate('/marketplace'); // Redirect to the Marketplace
+            navigate('/profile'); // Redirect to the Marketplace
         } else {
             const errorMessage = result?.error || 'An error occurred during signup or login.';
             setError(errorMessage); // Set the error message

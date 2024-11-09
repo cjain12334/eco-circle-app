@@ -1,6 +1,7 @@
+// used in e-waste page
 import React from 'react'
 
-function Card({ imgPath, title, desc, sz }) {
+function Card({ imgPath, title, desc}) {
   return (
     <div className='w-64'>
         <div className='flex flex-col items-center justify-center border border-white bg-white bg-opacity-10 backdrop-blur-md rounded-lg w-64 h-64'>

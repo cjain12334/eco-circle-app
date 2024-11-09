@@ -1,3 +1,4 @@
+// used in product page
 import React, { useState } from 'react';
 
 const FAQAccordion = ({ question, answer }) => {

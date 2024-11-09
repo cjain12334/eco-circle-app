@@ -1,5 +1,7 @@
 import React from 'react'
 
+// image - image of user
+// name - name of user 
 function ProfileCard({ image, name }) {
   return (
     <div className='flex items-center gap-x-4'>

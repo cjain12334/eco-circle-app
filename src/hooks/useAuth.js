@@ -9,7 +9,7 @@ const useAuth = () => {
         setLoading(true);
         setError(null);
         try {
-            const response = await axios.post('http://localhost:4000/api/users/signup', userData);
+            const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/users/signup`, userData);
             
             // Assuming the response contains a token
             const { token } = response.data;
@@ -32,7 +32,8 @@ const useAuth = () => {
         setError(null); // Clear any previous errors
         try {
             // Send a POST request to the backend API with the user's credentials
-            const response = await axios.post('http://localhost:4000/api/users/login', credentials);
+            console.log(process.env.REACT_APP_BACKEND_URL);
+            const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/users/login`, credentials);
             
             // If the request is successful, return the response data
             return response.data; 

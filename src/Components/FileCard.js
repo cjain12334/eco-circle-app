@@ -1,3 +1,4 @@
+// used in e-waste page
 import React from 'react'
 
 function FileCard({heading, icon, desc, title, action, btnText}) {
